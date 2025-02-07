@@ -22,9 +22,9 @@ export default function Navbar() {
   }
   return (
     <>
-      <nav className="flex items-center justify-between gap-4 p-6 z-100 top-0 w-full">
+      <nav className="flex items-center justify-between gap-4 p-10 z-100 top-0 w-full">
         <Link href="/" className="text-zinc-300 font-light text-2xl">
-          Flex<span className="font-bold text-red-800">Force</span>
+          Flex<span className="font-bold text-red-600">Force</span>
         </Link>
         <ul className={isOpen ? "open" : "flex gap-x-6"}>
           {navLinks.map((link) => (

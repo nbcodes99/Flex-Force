@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend+Giga:wght@100..900&family=Liter&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
   --background: #ffffff;
@@ -27,4 +27,13 @@ body {
 nav {
   font-family: "Lato", serif;
   font-weight: 500;
+}
+.headline {
+  font-family: "arial";
+  letter-spacing: 2px;
+}
+.paragraph {
+  font-family: "Lexend Giga", serif;
+  font-weight: 300;
+  font-size: 18px;
 }

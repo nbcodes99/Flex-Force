@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@plugin "daisyui";
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend+Giga:wght@100..900&family=Liter&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
@@ -19,12 +20,13 @@ body {
   color: var(--foreground);
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("./assets//bg.jpg");
-  height: 80vh;
+  height: 100vh;
   background-size: cover;
   background-position: center;
   font-family: Arial, Helvetica, sans-serif;
+  bottom: 0;
 }
-nav {
+nav ul li {
   font-family: "Lato", serif;
   font-weight: 500;
 }
@@ -36,4 +38,75 @@ nav {
   font-family: "Lexend Giga", serif;
   font-weight: 300;
   font-size: 18px;
+}
+.book {
+  position: absolute;
+  right: 10px;
+  top: 100px;
+}
+@keyframes book {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 10px;
+  }
+}
+
+.details-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ul {
+  display: flex;
+  gap: 20px;
+}
+
+.hamburger {
+  display: none;
+}
+
+ul.open {
+  display: flex;
+}
+@media screen and (max-width: 768px) {
+  ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    margin: 0%;
+    padding: 100px 20px;
+    background-color: #121212;
+    z-index: 400;
+    height: fit-content;
+    width: 100%;
+    animation-name: nav-animation;
+    animation-duration: 1s ease-in-out;
+    animation-fill-mode: forwards;
+    text-align: center;
+  }
+  @keyframes nav-animation {
+    0% {
+      top: -100%;
+    }
+    100% {
+      top: 0%;
+    }
+  }
+
+  .hamburger {
+    position: absolute;
+    display: block;
+    cursor: pointer;
+    right: 1rem;
+    top: 50%;
+    transform: translate(-5%, -50%);
+    padding: 0.3rem;
+    z-index: 500;
+  }
 }

@@ -2,7 +2,19 @@ import Link from "next/link";
 import FitnessCard from "./components/card";
 import TestimonyCard from "./components/TestimonyCard";
 import { MdLocationOn, MdOutlineMailOutline } from "react-icons/md";
-import { FaPhone } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaPhone,
+  FaRegCopyright,
+  FaTwitter,
+  FaYoutube,
+} from "react-icons/fa";
+
+const small = {
+  fontSize: "12px",
+};
 
 export default function Home() {
   return (
@@ -61,7 +73,7 @@ export default function Home() {
           </h1>
           <p
             className="text-center font-light text-zinc-700 my-3"
-            style={{ fontSize: "12px" }}
+            style={small}
           >
             Hear how our members transformed their lives.
           </p>
@@ -80,7 +92,7 @@ export default function Home() {
             />
           </div>
         </section>
-        <section className="bg-black flex flex-col md:flex-row items-center justify-evenly md:justify-around w-full p-6">
+        <section className="bg-black flex flex-col md:flex-row items-center justify-evenly md:justify-around w-full p-6 pb-20">
           <div>
             <h1 className="font-bold text-3xl md:text-4xl text-center text-zinc-300 mb-4">
               Get In Touch
@@ -111,32 +123,143 @@ export default function Home() {
             </span>
           </div>
         </section>
-        <section className="bg-black w-full flex flex-col md:flex-row items-center">
-          <div>
-            <h1 className="font-bold text-red-700 text-2xl">FlexForce</h1>
-            <p className="font-light text-zinc-800">
-              Subscribe to our newsletter for the latest updates on features and
-              releases.
+        <section className="bg-black w-full flex flex-col justify-between p-6">
+          <div className="flex flex-col md:flex-row items-center justify-evenly mb-10">
+            <div className="">
+              <h1 className="font-bold text-2xl text-center md:text-left">
+                Flex<span className="text-red-700">Force</span>
+              </h1>
+              <p
+                className="font-light text-zinc-600 mb-6 text-center md:text-left"
+                style={small}
+              >
+                Subscribe to our newsletter for the latest updates on features
+                and releases.
+              </p>
+              <div className="flex gap-x-2 mb-3">
+                <input
+                  type="text"
+                  placeholder="Email"
+                  className="p-2 bg-transparent border-zinc-700 border focus:outline-none focus:border-zinc-500 transition-colors"
+                />
+                <button className="p-2 bg-zinc-800 hover:bg-zinc-900 transition-colors rounded-sm w-28">
+                  Join
+                </button>
+              </div>
+              <p className="font-light text-zinc-600 mb-6" style={small}>
+                By subscribing, you consent to our{" "}
+                <span className="font-bold">Privacy Policy</span> & agree to
+                receive updates.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-x-10">
+              <div className="quick-links flex flex-col items-start gap-y-2 text-zinc-500">
+                <h1 className="font-bold text-2xl mb-4 text-zinc-200">
+                  Quick Links
+                </h1>
+
+                <Link href="/" style={small}>
+                  Home Page
+                </Link>
+                <Link href="/book" style={small}>
+                  Book Now
+                </Link>
+                <Link href="/plans" style={small}>
+                  Plans
+                </Link>
+                <Link href="/programs" style={small}>
+                  Our Programs
+                </Link>
+                <Link href="/contact" style={small}>
+                  Contact Us
+                </Link>
+              </div>
+              <div className="socials flex flex-col items-start gap-y-2">
+                <h1 className="font-bold text-2xl mb-4">Follow Us</h1>
+                <span className="flex items-center gap-x-2">
+                  <FaFacebook />
+                  <Link
+                    href="/https://facebook.com"
+                    className="text-zinc-500"
+                    style={small}
+                  >
+                    Facebook
+                  </Link>
+                </span>
+                <span className="flex items-center gap-x-2">
+                  <FaInstagram />
+                  <Link
+                    href="/https://instagram.com"
+                    className="text-zinc-500"
+                    style={small}
+                  >
+                    Instagram
+                  </Link>
+                </span>
+                <span className="flex items-center gap-x-2">
+                  <FaTwitter />
+                  <Link
+                    href="/https://instagram.com"
+                    className="text-zinc-500"
+                    style={small}
+                  >
+                    Twitter
+                  </Link>
+                </span>
+                <span className="flex items-center gap-x-2">
+                  <FaYoutube />
+                  <Link
+                    href="/https://youtube.com"
+                    className="text-zinc-500"
+                    style={small}
+                  >
+                    Youtube
+                  </Link>
+                </span>
+
+                <span className="flex items-center gap-x-2">
+                  <FaLinkedin />
+                  <Link
+                    href="/https://linkedin.com"
+                    className="text-zinc-500"
+                    style={small}
+                  >
+                    LinkedIn
+                  </Link>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center flex-col md:flex-row justify-evenly mt-10">
+            <p className="text-zinc-500 flex items-center" style={small}>
+              <FaRegCopyright className="mr-2 text-zinc-300" />
+              2024{" "}
+              <span className="ml-1 text-red-800 font-bold">FlexForce</span>.
+              All rights reserved.
             </p>
-            <div>
-              <input
-                type="text"
-                placeholder="Email"
-                className="p-4 bg-transparent border-zinc-700 border"
-              />
-              <button className="p-4 bg-red-300">Join</button>
+            <div className="flex gap-x-2 mt-6 md:mt-0">
+              <p
+                className="underline text-zinc-500 cursor-pointer"
+                style={small}
+              >
+                Privacy Policy
+              </p>
+              <p
+                className="underline text-zinc-500 cursor-pointer"
+                style={small}
+              >
+                Terms of Service
+              </p>
+              <p
+                className="underline text-zinc-500 cursor-pointer"
+                style={small}
+              >
+                Cookies
+              </p>
             </div>
           </div>
         </section>
       </main>
     </>
   );
-}
-
-{
-  /* <FaInstagram />
-<FaYoutube />
-<FaFacebook />
-<FaLinkedin />
-<FaTwitter /> */
 }

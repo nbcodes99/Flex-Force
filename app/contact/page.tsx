@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { MdCancel } from "react-icons/md";
 
 const smallFont = {
@@ -8,12 +8,35 @@ const smallFont = {
 };
 
 export default function Contact() {
-  const [messageValue, setMessageValue] = useState();
-  const [message, setMessage] = useState();
+  const [messageValue, setMessageValue] = useState("");
+  const [message, setMessage] = useState(false);
+  const [overlay, setOverlay] = useState(false);
 
-  function submitForm(e: any) {
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+
+  function submitForm(e: React.FormEvent) {
     e.preventDefault();
+
+    if (nameRef.current && emailRef.current) {
+      if (
+        nameRef.current.value.length > 2 &&
+        emailRef.current.value.includes("@")
+      ) {
+        setOverlay(true);
+        setMessage(true);
+        setMessageValue("");
+      }
+    } else {
+      alert("Please fill in the inputs!");
+    }
   }
+
+  function close() {
+    setOverlay(!overlay);
+    setMessage(!message);
+  }
+
   return (
     <>
       <section className="flex flex-col items-center p-6 h-screen bg-black">
@@ -29,14 +52,16 @@ export default function Contact() {
         <p className="font-light text-center text-zinc-500" style={smallFont}>
           We'd love to hear from you. Reach out today!
         </p>
-        <form className="mt-10 w-52 md:w-96">
+        <form className="mt-10 w-52 md:w-96" onSubmit={submitForm}>
           <div className="flex flex-col gap-2 mb-3">
             <label htmlFor="name">Name</label>
             <input
               type="text"
               className="p-3 bg-transparent border-zinc-800 border rounded-md outline-none focus:border-zinc-600"
               placeholder="Your Name"
+              ref={nameRef}
               style={smallFont}
+              required
             />
           </div>
           <div className="flex flex-col gap-2 mb-3">
@@ -45,7 +70,9 @@ export default function Contact() {
               type="email"
               className="p-3 bg-transparent border-zinc-800 border rounded-md outline-none focus:border-zinc-600"
               placeholder="Your Email"
+              ref={emailRef}
               style={smallFont}
+              required
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -58,30 +85,30 @@ export default function Contact() {
               rows={3}
               cols={10}
               style={smallFont}
-              onChange={(e) => e.target.value}
+              value={messageValue}
+              onChange={(e) => setMessageValue(e.target.value)}
             ></textarea>
           </div>
           <button
             type="submit"
             className="p-3 w-full bg-red-900 my-2 rounded-md font-bold"
-            onClick={submitForm}
           >
             Submit
           </button>
         </form>
-        {message ? (
-          <div className="message-sent bg-zinc-900 p-3">
-            <p>
-              Your message has been sent! <br /> {message}
-            </p>
-            <MdCancel
-              className="cursor-pointer"
-              style={{ fontSize: "22px" }}
-              onClick={close}
-            />
-          </div>
-        ) : (
-          ""
+
+        {message && (
+          <>
+            <div className="overlay fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-100 transition-colors"></div>
+            <div className="message-sent bg-zinc-900 animate-zoom-in book h-fit w-fit gap-6 rounded-md p-3 flex justify-between items-center z-200">
+              <p>Your message has been sent!</p>
+              <MdCancel
+                className="cursor-pointer"
+                style={{ fontSize: "22px" }}
+                onClick={close}
+              />
+            </div>
+          </>
         )}
       </section>
     </>

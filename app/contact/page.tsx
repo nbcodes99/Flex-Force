@@ -50,7 +50,7 @@ export default function Contact() {
           Get In Touch
         </h1>
         <p className="font-light text-center text-zinc-500" style={smallFont}>
-          We'd love to hear from you. Reach out today!
+          We&apos;d love to hear from you. Reach out today!
         </p>
         <form className="mt-10 w-52 md:w-96" onSubmit={submitForm}>
           <div className="flex flex-col gap-2 mb-3">

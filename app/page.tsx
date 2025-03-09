@@ -19,7 +19,7 @@ const small = {
 export default function Home() {
   return (
     <>
-      <main className="w-full flex flex-col p-8 items-center md:items-start">
+      <main className="w-full bg-black flex flex-col p-8 items-center md:items-start">
         <section className="flex flex-col p-6 items-center md:items-start mb-6">
           <p className="paragraph text-zinc-400 text-center md:text-start">
             Base Fit - Functional Fitness Studio
@@ -98,8 +98,8 @@ export default function Home() {
               Get In Touch
             </h1>
             <p className="text-zinc-500 font-light mb-6 text-center">
-              We're here to assist you with any inquiries or support you may
-              need.
+              We&apos;re here to assist you with any inquiries or support you
+              may need.
             </p>
           </div>
           <div className="flex flex-col gap-6 mt-8 md:mt-0">
@@ -148,7 +148,7 @@ export default function Home() {
               </div>
               <p className="font-light text-zinc-600 mb-6" style={small}>
                 By subscribing, you consent to our{" "}
-                <span className="font-bold">Privacy Policy</span> & agree to
+                <span className="font-bold">Privacy Policy</span> &amp; agree to
                 receive updates.
               </p>
             </div>
@@ -263,3 +263,4 @@ export default function Home() {
     </>
   );
 }
+``;

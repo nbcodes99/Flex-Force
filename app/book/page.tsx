@@ -4,7 +4,7 @@ import BookCard from "../components/BookCard";
 export default function Book() {
   return (
     <>
-      <section className="flex flex-col items-center">
+      <section className="flex flex-col items-center bg-black">
         <h1 className="text-3xl text-center md:text-4xl font-bold text-zinc-300 mb-6">
           Our Classes
         </h1>
